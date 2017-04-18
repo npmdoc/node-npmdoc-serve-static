@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.serve-static.serve-static">
+            function <span class="apidocSignatureSpan"></span>serve-static
+            <span class="apidocSignatureSpan">(root, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.serve-static.mime.Mime">
             function <span class="apidocSignatureSpan">serve-static.</span>mime.Mime
             <span class="apidocSignatureSpan">()</span>
@@ -197,6 +206,108 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.serve-static" id="apidoc.module.serve-static">module serve-static</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.serve-static.serve-static" id="apidoc.element.serve-static.serve-static">
+        function <span class="apidocSignatureSpan"></span>serve-static
+        <span class="apidocSignatureSpan">(root, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function serveStatic(root, options) {
+  if (!root) {
+    throw new TypeError(&#x27;root path required&#x27;)
+  }
+
+  if (typeof root !== &#x27;string&#x27;) {
+    throw new TypeError(&#x27;root path must be a string&#x27;)
+  }
+
+  // copy options object
+  var opts = Object.create(options || null)
+
+  // fall-though
+  var fallthrough = opts.fallthrough !== false
+
+  // default redirect
+  var redirect = opts.redirect !== false
+
+  // headers listener
+  var setHeaders = opts.setHeaders
+
+  if (setHeaders &#x26;&#x26; typeof setHeaders !== &#x27;function&#x27;) {
+    throw new TypeError(&#x27;option setHeaders must be function&#x27;)
+  }
+
+  // setup options for send
+  opts.maxage = opts.maxage || opts.maxAge || 0
+  opts.root = resolve(root)
+
+  // construct directory listener
+  var onDirectory = redirect
+    ? createRedirectDirectoryListener()
+    : createNotFoundDirectoryListener()
+
+  return function serveStatic (req, res, next) {
+    if (req.method !== &#x27;GET&#x27; &#x26;&#x26; req.method !== &#x27;HEAD&#x27;) {
+      if (fallthrough) {
+        return next()
+      }
+
+      // method not allowed
+      res.statusCode = 405
+      res.setHeader(&#x27;Allow&#x27;, &#x27;GET, HEAD&#x27;)
+      res.setHeader(&#x27;Content-Length&#x27;, &#x27;0&#x27;)
+      res.end()
+      return
+    }
+
+    var forwardError = !fallthrough
+    var originalUrl = parseUrl.original(req)
+    var path = parseUrl(req).pathname
+
+    // make sure redirect occurs at mount
+    if (path === &#x27;/&#x27; &#x26;&#x26; originalUrl.pathname.substr(-1) !== &#x27;/&#x27;) {
+      path = &#x27;&#x27;
+    }
+
+    // create send stream
+    var stream = send(req, path, opts)
+
+    // add directory handler
+    stream.on(&#x27;directory&#x27;, onDirectory)
+
+    // add headers listener
+    if (setHeaders) {
+      stream.on(&#x27;headers&#x27;, setHeaders)
+    }
+
+    // add file listener for fallthrough
+    if (fallthrough) {
+      stream.on(&#x27;file&#x27;, function onFile () {
+        // once file is determined, always forward error
+        forwardError = true
+      })
+    }
+
+    // forward errors
+    stream.on(&#x27;error&#x27;, function error (err) {
+      if (forwardError || !(err.statusCode &#x3c; 500)) {
+        next(err)
+        return
+      }
+
+      next()
+    })
+
+    // pipe
+    stream.pipe(res)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
