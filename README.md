@@ -1,9 +1,14 @@
-# api documentation for  [serve-static (v1.12.1)](https://github.com/expressjs/serve-static#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-serve-static.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-serve-static) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-serve-static.svg)](https://travis-ci.org/npmdoc/node-npmdoc-serve-static)
+# npmdoc-serve-static
+
+#### api documentation for  [serve-static (v1.12.1)](https://github.com/expressjs/serve-static#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-serve-static.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-serve-static) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-serve-static.svg)](https://travis-ci.org/npmdoc/node-npmdoc-serve-static)
+
 #### Serve static files
 
-[![NPM](https://nodei.co/npm/serve-static.png?downloads=true)](https://www.npmjs.com/package/serve-static)
+[![NPM](https://nodei.co/npm/serve-static.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/serve-static)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-serve-static/build/screenCapture.buildNpmdoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-serve-static%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-serve-static/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-serve-static/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-serve-static/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-serve-static/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-serve-static/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-serve-static/build/screenCapture.npmPackageListing.svg)
 
@@ -17,8 +22,7 @@
 
 {
     "author": {
-        "name": "Douglas Christopher Wilson",
-        "email": "doug@somethingdoug.com"
+        "name": "Douglas Christopher Wilson"
     },
     "bugs": {
         "url": "https://github.com/expressjs/serve-static/issues"
@@ -58,13 +62,11 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "dougwilson",
-            "email": "doug@somethingdoug.com"
+            "name": "dougwilson"
         }
     ],
     "name": "serve-static",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/expressjs/serve-static.git"
@@ -77,228 +79,6 @@
     },
     "version": "1.12.1"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module serve-static](#apidoc.module.serve-static)
-1.  [function <span class="apidocSignatureSpan">serve-static.</span>mime.Mime ()](#apidoc.element.serve-static.mime.Mime)
-1.  object <span class="apidocSignatureSpan">serve-static.</span>mime
-1.  object <span class="apidocSignatureSpan">serve-static.</span>mime.Mime.prototype
-1.  object <span class="apidocSignatureSpan">serve-static.</span>mime.charsets
-
-#### [module serve-static.mime](#apidoc.module.serve-static.mime)
-1.  [function <span class="apidocSignatureSpan">serve-static.mime.</span>Mime ()](#apidoc.element.serve-static.mime.Mime)
-1.  object <span class="apidocSignatureSpan">serve-static.mime.</span>charsets
-1.  object <span class="apidocSignatureSpan">serve-static.mime.</span>extensions
-1.  object <span class="apidocSignatureSpan">serve-static.mime.</span>types
-1.  string <span class="apidocSignatureSpan">serve-static.mime.</span>default_type
-
-#### [module serve-static.mime.Mime](#apidoc.module.serve-static.mime.Mime)
-1.  [function <span class="apidocSignatureSpan">serve-static.mime.</span>Mime ()](#apidoc.element.serve-static.mime.Mime.Mime)
-
-#### [module serve-static.mime.Mime.prototype](#apidoc.module.serve-static.mime.Mime.prototype)
-1.  [function <span class="apidocSignatureSpan">serve-static.mime.Mime.prototype.</span>define (map)](#apidoc.element.serve-static.mime.Mime.prototype.define)
-1.  [function <span class="apidocSignatureSpan">serve-static.mime.Mime.prototype.</span>extension (mimeType)](#apidoc.element.serve-static.mime.Mime.prototype.extension)
-1.  [function <span class="apidocSignatureSpan">serve-static.mime.Mime.prototype.</span>load (file)](#apidoc.element.serve-static.mime.Mime.prototype.load)
-1.  [function <span class="apidocSignatureSpan">serve-static.mime.Mime.prototype.</span>lookup (path, fallback)](#apidoc.element.serve-static.mime.Mime.prototype.lookup)
-
-#### [module serve-static.mime.charsets](#apidoc.module.serve-static.mime.charsets)
-1.  [function <span class="apidocSignatureSpan">serve-static.mime.charsets.</span>lookup (mimeType, fallback)](#apidoc.element.serve-static.mime.charsets.lookup)
-
-
-
-# <a name="apidoc.module.serve-static"></a>[module serve-static](#apidoc.module.serve-static)
-
-#### <a name="apidoc.element.serve-static.mime.Mime"></a>[function <span class="apidocSignatureSpan">serve-static.</span>mime.Mime ()](#apidoc.element.serve-static.mime.Mime)
-- description and source-code
-```javascript
-function Mime() {
-  // Map of extension -> mime type
-  this.types = Object.create(null);
-
-  // Map of mime type -> extension
-  this.extensions = Object.create(null);
-}
-```
-- example usage
-```shell
-n/a
-```
-
-
-
-# <a name="apidoc.module.serve-static.mime"></a>[module serve-static.mime](#apidoc.module.serve-static.mime)
-
-#### <a name="apidoc.element.serve-static.mime.Mime"></a>[function <span class="apidocSignatureSpan">serve-static.mime.</span>Mime ()](#apidoc.element.serve-static.mime.Mime)
-- description and source-code
-```javascript
-function Mime() {
-  // Map of extension -> mime type
-  this.types = Object.create(null);
-
-  // Map of mime type -> extension
-  this.extensions = Object.create(null);
-}
-```
-- example usage
-```shell
-n/a
-```
-
-
-
-# <a name="apidoc.module.serve-static.mime.Mime"></a>[module serve-static.mime.Mime](#apidoc.module.serve-static.mime.Mime)
-
-#### <a name="apidoc.element.serve-static.mime.Mime.Mime"></a>[function <span class="apidocSignatureSpan">serve-static.mime.</span>Mime ()](#apidoc.element.serve-static.mime.Mime.Mime)
-- description and source-code
-```javascript
-function Mime() {
-  // Map of extension -> mime type
-  this.types = Object.create(null);
-
-  // Map of mime type -> extension
-  this.extensions = Object.create(null);
-}
-```
-- example usage
-```shell
-n/a
-```
-
-
-
-# <a name="apidoc.module.serve-static.mime.Mime.prototype"></a>[module serve-static.mime.Mime.prototype](#apidoc.module.serve-static.mime.Mime.prototype)
-
-#### <a name="apidoc.element.serve-static.mime.Mime.prototype.define"></a>[function <span class="apidocSignatureSpan">serve-static.mime.Mime.prototype.</span>define (map)](#apidoc.element.serve-static.mime.Mime.prototype.define)
-- description and source-code
-```javascript
-define = function (map) {
-  for (var type in map) {
-    var exts = map[type];
-    for (var i = 0; i < exts.length; i++) {
-      if (process.env.DEBUG_MIME && this.types[exts]) {
-        console.warn(this._loading.replace(/.*\//, ''), 'changes "' + exts[i] + '" extension type from ' +
-          this.types[exts] + ' to ' + type);
-      }
-
-      this.types[exts[i]] = type;
-    }
-
-    // Default extension is the first one we encounter
-    if (!this.extensions[type]) {
-      this.extensions[type] = exts[0];
-    }
-  }
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.serve-static.mime.Mime.prototype.extension"></a>[function <span class="apidocSignatureSpan">serve-static.mime.Mime.prototype.</span>extension (mimeType)](#apidoc.element.serve-static.mime.Mime.prototype.extension)
-- description and source-code
-```javascript
-extension = function (mimeType) {
-  var type = mimeType.match(/^\s*([^;\s]*)(?:;|\s|$)/)[1].toLowerCase();
-  return this.extensions[type];
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.serve-static.mime.Mime.prototype.load"></a>[function <span class="apidocSignatureSpan">serve-static.mime.Mime.prototype.</span>load (file)](#apidoc.element.serve-static.mime.Mime.prototype.load)
-- description and source-code
-```javascript
-load = function (file) {
-  this._loading = file;
-  // Read file and split into lines
-  var map = {},
-      content = fs.readFileSync(file, 'ascii'),
-      lines = content.split(/[\r\n]+/);
-
-  lines.forEach(function(line) {
-    // Clean up whitespace/comments, and split into fields
-    var fields = line.replace(/\s*#.*|^\s*|\s*$/g, '').split(/\s+/);
-    map[fields.shift()] = fields;
-  });
-
-  this.define(map);
-
-  this._loading = null;
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.serve-static.mime.Mime.prototype.lookup"></a>[function <span class="apidocSignatureSpan">serve-static.mime.Mime.prototype.</span>lookup (path, fallback)](#apidoc.element.serve-static.mime.Mime.prototype.lookup)
-- description and source-code
-```javascript
-lookup = function (path, fallback) {
-  var ext = path.replace(/.*[\.\/\\]/, '').toLowerCase();
-
-  return this.types[ext] || fallback || this.default_type;
-}
-```
-- example usage
-```shell
-...
-  maxAge: '1d',
-  setHeaders: setCustomCacheControl
-}))
-
-app.listen(3000)
-
-function setCustomCacheControl (res, path) {
-  if (serveStatic.mime.lookup(path) === 'text/html') {
-    // Custom Cache-Control for HTML files
-    res.setHeader('Cache-Control', 'public, max-age=0')
-  }
-}
-'''
-
-## License
-...
-```
-
-
-
-# <a name="apidoc.module.serve-static.mime.charsets"></a>[module serve-static.mime.charsets](#apidoc.module.serve-static.mime.charsets)
-
-#### <a name="apidoc.element.serve-static.mime.charsets.lookup"></a>[function <span class="apidocSignatureSpan">serve-static.mime.charsets.</span>lookup (mimeType, fallback)](#apidoc.element.serve-static.mime.charsets.lookup)
-- description and source-code
-```javascript
-lookup = function (mimeType, fallback) {
-  // Assume text types are utf8
-  return (/^text\//).test(mimeType) ? 'UTF-8' : fallback;
-}
-```
-- example usage
-```shell
-...
-  maxAge: '1d',
-  setHeaders: setCustomCacheControl
-}))
-
-app.listen(3000)
-
-function setCustomCacheControl (res, path) {
-  if (serveStatic.mime.lookup(path) === 'text/html') {
-    // Custom Cache-Control for HTML files
-    res.setHeader('Cache-Control', 'public, max-age=0')
-  }
-}
-'''
-
-## License
-...
 ```
 
 
